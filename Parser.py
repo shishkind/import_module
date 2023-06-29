@@ -3,11 +3,14 @@ from tkinter.filedialog import *
 import fileinput
 import pyodbc
 import transliterate
+
 import datetime
 from pyodbc import Error
 from lxml import etree
 from transliterate import translit
 import os
+issn_list = []
+isbn_list = []
 l = []
 Full_results = []
 gl_indicators = []
@@ -30,6 +33,7 @@ count_art = 0
 count_conf = 0
 count_book = 0
 count_other = 0
+urls = []
 
 def read(filename):
     global l
@@ -53,7 +57,7 @@ def read(filename):
             source = "eLibrary"
             #print(xml)
     #print(source)
- 
+
 def parseXML():
     global xml
     root = etree.fromstring(xml)
@@ -119,14 +123,14 @@ def parseXML():
             book_dict = []
     
     #for i in range(len(books)):
-     # for j in range(len(books[i])):
+      #for j in range(len(books[i])):
         #print(indicators[i][j] + ": " + books[i][j])
       #print(" ")
     eLib_inds = indicators
     #return books
 
 def eLib_output():
-    global books
+    global books, issn_list, isbn_list
     global eLib_inds
     global all_firstnames
     global all_lastnames
@@ -144,12 +148,14 @@ def eLib_output():
     global count_art
     global count_book
     global count_other
+    global urls
     page_end = []
     page_st = []
     page_count = []
     indicators = ['genre','title', 'publisher', 'year', 'volume', 'pagesnumber', 'language', 'cited', 'doi', 'isbn', 'issn', 'linkurl',
                   'pages', 'title']
     for i in range(len(books)):
+        page_flag = False
         for j in range(len(books[i])):
             if eLib_inds[i][j] == "lastname":
                 tmp_author = tmp_author + books[i][j]
@@ -158,12 +164,18 @@ def eLib_output():
             if eLib_inds[i][j] == "pages":
                 if books[i][j].find("-") != -1:
                     page_end.append(books[i][j][books[i][j].find("-")+1:].replace("e", ""))
+                    #print(books[i][j][books[i][j].find("-")+1:].replace("e", ""))
                     page_st.append(books[i][j][:books[i][j].find("-")].replace("e", ""))
-                    page_count.append(int(page_end[i])-int(page_st[i])+1)
+                    #print(books[i][j][:books[i][j].find("-")].replace("e", ""))
+                    try:
+                        page_count.append(int(page_end[i])-int(page_st[i])+1)
+                    except:
+                        page_count.append("0")
                 else:
                     page_st.append(books[i][j].replace("e", ""))
                     page_end.append(books[i][j].replace("e", ""))
                     page_count.append("1")
+                page_flag = True
             if eLib_inds[i][j] == 'genre' and books[i][j] == 'статья в сборнике трудов конференции':
                 count_conf += 1
             elif eLib_inds[i][j] == 'genre' and books[i][j] == 'статья в журнале':
@@ -171,15 +183,39 @@ def eLib_output():
             elif eLib_inds[i][j] == 'genre' and books[i][j] == 'книга или сборник статей':
                 count_book += 1
             elif eLib_inds[i][j] == 'genre':
-                count_other += 1            
+                count_other += 1   
+            if eLib_inds[i][j] == 'linkurl':
+                urls.append(books[i][j])
+                print(urls[i])
+        if not page_flag:
+            page_st.append("None")
+            page_end.append("None")
+            page_count.append("None")    
             
                 
         authors.append(tmp_author)
         tmp_author = ""
 
-    for i in range( len(books)):
+    for i in range(len(books)):
+        issn_flag = False
+        isbn_flag = False
+        for j in range(len(books[i])):
+            for k in range(len(indicators)):
+                if eLib_inds[i][j] == "issn" and indicators[k] == "issn":
+                    issn_list.append(books[i][j])
+                    issn_flag = True
+                if eLib_inds[i][j] == "isbn" and indicators[k] == "isbn":
+                    isbn_list.append(books[i][j])
+                    isbn_flag = True
+        if not issn_flag:
+            issn_list.append("None")
+        if not isbn_flag:
+            isbn_list.append("None")
+                    
+    for i in range(len(books)):
         for k in range(len(indicators)):
             if tmp_list[k] == 0:
+                print(indicators[k])
                 for j in range(tmp_i, len(books[i])):
                     if eLib_inds[i][j] == indicators[k]:
                         tmp_list[k] = books[i][j]
@@ -191,12 +227,15 @@ def eLib_output():
         tmp_author = ""
         count_publ+=1
         Full_results.append(tmp_list)
+        #print(tmp_list)
         tmp_list = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+""" 
     print(Full_results)
     print(authors)
     print(page_st)
     print(page_end)
     print(page_count)
+"""
             
 
 
@@ -475,7 +514,7 @@ def output(): # Тут просто вывод общего списка  пок
 
 
 def sql_export():
-    global all_firstnames
+    global all_firstnames, issn_list, isbn_list
     global all_patr
     global all_lastnames
     global authors
@@ -483,10 +522,11 @@ def sql_export():
     global page_end
     global page_st
     global Full_results
-    server = '192.168.20.170'
+    global urls
+    server = 'host.docker.internal'
     database = 'BasePPS'
-    username = 'shishkin.d'
-    password = '295#Skz'
+    username = 'SA'
+    password = '123QWEasd'
     try:
         cnxn = pyodbc.connect(
             'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
@@ -498,14 +538,32 @@ def sql_export():
     current_date = str(datetime.datetime.now().year) + "-" + str(datetime.datetime.now().month) + "-" + str(datetime.datetime.now().day)
     if source == "eLibrary":
         for k in range(len(Full_results)):
+            print(Full_results[k][9])
             tmp_transl = authors[k]
             tmp_transl = tmp_transl.replace('ia', 'ия')
             tmp_transl = tmp_transl.replace('x', 'кс')
             tmp_transl = tmp_transl.replace('Yu', 'Ю')
             tmp_transl = tmp_transl.replace('kaya', 'кая')
             tmp_transl = tmp_transl.replace('sky', 'ский')
-            cursor.execute("""INSERT INTO dbo.tmp_export (NameAuthor_EN, NameAuthor_RU, Name_Edt, Year, Release, DOI_ED, URL_ISI, Name_PDO, Name_Part, ISSN, ISBN, language_part, NameStruct, Valume_UIA, PageCount, PageBg, PageEnd, Valume_IndA, Name_ABase) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", authors[k], translit(tmp_transl, 'ru'), Full_results[k][13], Full_results[k][3], Full_results[k][4], Full_results[k][8], Full_results[k][11], Full_results[k][2], Full_results[k][1], Full_results[k][10], Full_results[k][9], Full_results[k][6], Full_results[k][0], "", page_count[k], page_st[k], page_end[k], Full_results[k][7], source)
+            print("добавляю статью № " + str(k) + " в БД")
+            if len(str(Full_results[k][2])) > 200 or len(str(Full_results[k][13])):
+                try:
+                    cursor.execute("""INSERT INTO dbo.tmp_export (NameAuthor_EN, NameAuthor_RU, Name_Edt, Year, Release, DOI_ED, URL_ISI, Name_PDO, Name_Part, ISSN, ISBN, language_part, NameStruct, Valume_UIA, PageCount, PageBg, PageEnd, Valume_IndA, Name_ABase) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", authors[k], translit(tmp_transl, 'ru'), str(Full_results[k][13])[:200], Full_results[k][3], Full_results[k][4], Full_results[k][8], urls[k], str(Full_results[k][2])[:200], Full_results[k][1], issn_list[k], isbn_list[k], Full_results[k][6], Full_results[k][0], "", str(page_count[k])[:10], page_st[k], page_end[k], Full_results[k][7], source)
+                    print("статья успешно добавлена")
+                except Exception as err:
+                    print("статья не добавлена" + str(err))
+                    f = open('ошибки.txt', 'a')
+                    f.write(authors[k] + '  ' + Full_results[k][1] + '   ' + Full_results[k][8] + '\n')
+            else:
+                try:
+                    cursor.execute("""INSERT INTO dbo.tmp_export (NameAuthor_EN, NameAuthor_RU, Name_Edt, Year, Release, DOI_ED, URL_ISI, Name_PDO, Name_Part, ISSN, ISBN, language_part, NameStruct, Valume_UIA, PageCount, PageBg, PageEnd, Valume_IndA, Name_ABase) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", authors[k], translit(tmp_transl, 'ru'), str(Full_results[k][13])[:200], Full_results[k][3], Full_results[k][4], Full_results[k][8], urls[k], str(Full_results[k][2])[:200], Full_results[k][1], issn_list[k], isbn_list[k], Full_results[k][6], Full_results[k][0], "", str(page_count[k])[:10], page_st[k], page_end[k], Full_results[k][7], source)
+                    print("статья успешно добавлена")
+                except Exception as err:
+                    print("статья не добавлена" + str(err))
+                    f = open('ошибки.txt', 'a')
+                    f.write(authors[k] + '  ' + Full_results[k][1] + '  ' + Full_results[k][8] + '\n')
             cnxn.commit()
+            
         print("success")    
     else:
         for k in range(len(Full_results)):
@@ -542,7 +600,7 @@ def main(filename):
     authors = []
     page_st = []
     page_end = []
-    page_count=[]
+    page_count=[] 
     count_publ = 0
     count_art = 0 
     count_conf = 0
@@ -555,17 +613,17 @@ def main(filename):
         assignment()
         split()
         output()
-        #sql_export()
+        sql_export()
     elif source == "Web Of Science":
         parse_WoS(2)
         assignment()
         split()
         output()
-        #sql_export()
+        sql_export()
     elif source == "eLibrary":
         parseXML()
         eLib_output()
-        #sql_export()
+        sql_export()
     else:
         print("File Error!")
         return
@@ -583,5 +641,7 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    main()
+    main("org_items_7811_9108698.xml")
+
+
 

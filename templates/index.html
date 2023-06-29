@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Авторизация</title>
+		<title>Добавление данных</title>
 		
 		{% load static %}
 		<link rel="stylesheet" href="{% static 'css/Main.css' %}">
@@ -40,9 +40,12 @@
         </div>
 </header>
 	<body>
+
+  <a href = "http://127.0.0.1:8080/"><button type="button" action="http://127.0.0.1:8080/" class="btn btn-secondary" style="margin-left: 32%; margin-top: 10px;">Назад</button></a>
 		<div class="bgr2">	
+
 			<form action="" id="User" method="POST" name="file" enctype="multipart/form-data"> 
-                {% csrf_token %}
+                {% csrf_token%}
 				<div align="center" class="h4 mb-3 font-weight-normal text-center">Добавление данных в систему</div>	
 				<div class="" role="alert">
             {{ try }}
