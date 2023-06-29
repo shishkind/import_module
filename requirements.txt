@@ -1,0 +1,4 @@
+Django==4.2.2
+lxml==4.9.2
+pyodbc==4.0.39
+transliterate==1.10.2

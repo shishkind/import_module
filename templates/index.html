@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Авторизация</title>
+		
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/Main.css' %}">
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	</head>
+	<header id="header">
+        <div id="main-div-header">
+          <div class="div-stick">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+          </div>
+          <div id="logo">
+            {% load static %}
+            <img class="img-fluid" src="{% static 'img/logo-mgtu.png' %}">
+          </div>
+          <div class="div-stick">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+          </div>
+        </div>
+        <div id="text-header">
+          <span>Магнитогорский государственный</span>
+          <br>
+          <span>технический университет им. Г.И. Носова</span>
+        </div>
+        <div id="div-stick-solo">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+        </div>
+</header>
+	<body>
+		<div class="bgr2">	
+			<form action="" id="User" method="POST" name="file" enctype="multipart/form-data"> 
+                {% csrf_token %}
+				<div align="center" class="h4 mb-3 font-weight-normal text-center">Добавление данных в систему</div>	
+				<div class="" role="alert">
+            {{ try }}
+				</div>
+				<div class="container input-group">
+						<div class="form-group">
+						  <label for="exampleFormControlFile1" style="margin-top: 20px;">Загрутие файл в систему в формате BibTeX или xml и нажмите "Добавить"</label>
+						  <br>{{ form }}
+                          <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 20px;">Добавить</button>
+						</div>
+				</div>
+				
+			</form>	
+		
+		</div>
+		</body>
+	</html>

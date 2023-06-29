@@ -1,0 +1,789 @@
+html,body{
+	background-color: #f5f5f5;
+	height:100%;
+}
+.header {
+	background-color: #f5f5f5;
+	height: 174px;
+	margin: 0 0 20px 0;
+	position: relative;
+}
+.input-group {
+    width: 200px; /* Ширина поля в пикселах */
+   } 
+
+header .bgr {
+	background: none repeat scroll 0 0 #323c8d;
+    float: left;
+    height: 116px;
+    margin: 20px 0 0 20px;
+    position: relative;
+    width: 100%;
+	z-index:10;
+}
+
+header .bgr a.logo {
+	background: url("img/logo-mgtu.png") no-repeat;
+	background-color:none;
+    display: block;
+    height: 136px;
+    margin: -10px 0 0 -40px;
+    position: absolute;
+    width: 81px;
+	z-index: 20;
+}
+header .square{
+	background: none repeat scroll 0 0 #e6e6fa;
+    display: block;
+    height: 116px;
+    padding: 50px 0 50;
+    position: absolute;
+    right: -22px;
+    top: 20px;
+    width: 220px;
+    z-index: 15;
+}
+header .bgr2 {
+
+	display: block;
+    height: 115px;
+    padding: 70px 0 70;
+    position: absolute;
+    right:450px;
+    top: 180px;
+    width: 264px;
+    z-index: 15;
+	margin-top:10px;
+}
+
+.superbutton{
+	position: relative;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 1px -1px #000;
+	user-select: none;
+	padding: .5em 3em;
+	outline: none;
+	background-color: #283a90;
+	background-image: linear-gradient(49deg, rgba(255,255,255,.0) 50%, rgba(255,255,256,.8), rgba(255,255,255,.0) 70%), radial-gradient(100% 100% at 60% 0%, rgba(255,255,255,.9) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+	background-repeat: no-repeat;
+	background-size: 140% 120%, auto;
+	background-position: 170% 0, 0 0;
+	background-position: 170% 0, 0 0;
+	box-shadow: rgba(0,0,0,.1) 0 2px 4px;
+	border-radius: 10px;
+	height:35px;
+	margin-left:60px;
+	margin-top:-50px;
+}
+.superbutton:active {
+	top: 1px;
+	box-shadow: none;
+}
+.superbutton:hover {
+	transition: .5s linear;
+	background-position: -200% 0, 0 0;
+	opacity: 1;
+}
+
+
+.input-group{	
+	display: flex;
+	width: 50%;
+	margin-bottom: 15px;
+	
+}
+.fa-fw{
+	padding: 8px;
+	background: #d0d0d0; /* Фон серый */
+	color: white;
+	min-width: 30px;
+	text-align: center;
+}
+.input-group-addon {
+	background :#d7d7d7;
+	height:25px;
+	width: 170px; 
+}
+
+ .input_user { 
+	width: 170px; 
+	border-radius:0 8px 8px 0;
+	font-size: 11pt;
+	padding: 6px;
+	outline: none;
+}
+.input_user:focus { 
+	border-radius:0 8px 8px 0; 
+	border: 2px solid #e6e6fa;
+}
+
+.fotm
+{
+left:20px;
+}
+
+header .header-crn {
+	background: url("img/header-crn3.png") no-repeat;
+	background-color:none;
+    height: 114px;
+    position: absolute;
+    right: 180px;
+    top: 20px;
+    width: 50px;
+	z-index:10;
+	
+	
+}
+
+header .fgbou-vpo,header .mgtu {
+	color: #FFFFFF;
+	position: absolute;
+	left: 250px;
+	
+}
+
+
+header .fgbou-vpo {
+    font-size: 13pt;
+    position: absolute;
+    top: 13px;
+    left:200px;
+	z-index:10;
+}
+header .mgtu {
+    font-size: 12pt;
+    font-weight: 600; 
+    text-transform: uppercase;
+    top: 45px;
+	z-index:20;
+	
+}
+header .pasport{
+    font-size: 13pt;
+    font-weight: 600;
+   
+	margin-top: 70px;
+	margin-left: 530px;
+    z-index:5;
+    color: #FFFFFF;
+	
+}
+header .custom-sertif-iso {
+	display: block;
+    position: absolute;
+    right: 15px;
+    top: 35px;
+    z-index: 20;
+}
+header .custom-sertif-iso a {
+	display:inline-block;
+}
+header .custom-sertif-iso img {
+	padding:0 1px;
+}
+
+header .exit:active {
+	top: 1px;
+	box-shadow: none;
+}
+header .exit:hover {
+	transition: .5s linear;
+	background-position: -200% 0, 0 0;
+}
+.foot {
+   position: fixed; /* Фиксированное положение 
+	position:inherit;  */
+    left: 0; 
+	bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    background: #283a90; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 120%; /* Ширина слоя */
+	height: 60px; /* высота блока-корректора */
+    clear: both; /* прерывание обтекания */
+	flex-shrink: 0;
+	 
+	
+	/*filter: invert(1) hue-rotate(210deg);   */ /*  Ночной режим */
+}
+.hFooter {
+	clear: both;
+	height: 80px;
+
+}
+
+.cont,
+.navbar-static-top .cont,
+.navbar-fixed-top .cont,
+.navbar-fixed-bottom .cont {
+    width:1200px;
+	/*background-color: #f5f5f5;*/
+}
+.cont {
+    margin-right: auto;
+    margin-left: auto;
+    *zoom: 1;
+}
+.cont:before,
+.cont:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.cont:after {
+    clear: both;
+}
+
+
+tr { height: 50px; }
+td { border: 1px solid lightgray;}
+
+.tech {
+	width: 573px; /* Ширина таблицы */
+    border: 0px solid lightgray; /* Рамка вокруг таблицы */
+	background: white; 
+	margin-top:30px;
+	margin-left:100px;
+	vertical-align: middle;
+}
+
+.tech_bux_table {
+	width:1250px; /* Ширина таблицы */
+    border: 0px solid lightgray; /* Рамка вокруг таблицы */
+	margin-top:-115px;
+	margin-left:-85px;
+	vertical-align: middle;
+}
+
+.tech td
+{
+    width: 150px;
+	border: 1px solid maroon;
+}​
+
+/* td
+{
+    width: 150px;
+    height: 70px;
+    display: inline-block;
+    overflow: auto;
+	border: 1px solid lightgray;
+	vertical-align:middle;
+}​*/
+
+.coloring *    {
+    cursor: default;
+}
+.colored_row    {
+    background-color: #ddd;
+}
+
+/* Форма для выбора вида добавления техники  */
+.tabs {
+	/*   width: 6em
+	padding: 0px;
+	margin-top:50px;
+	margin-left:20px;*/
+	
+	margin-left: auto;
+    margin-right: auto;
+	width: 1380px;
+  
+}
+/* Стили секций с содержанием */
+.tabs>section {
+	display: none;
+	padding: 100px;
+	background: #ffffff;
+	border: 1px solid #6495ed; /* границы панели */
+}
+.tabs>section>p   {
+	margin: 0 0 5px;
+	line-height: 2;
+	color: #000000;
+	/* анимациz */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+/* Описываем анимацию свойства opacity */
+ 
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/* Прячем чекбоксы */
+.tabs>input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.tabs>label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: #000000;
+	border: 0px solid #6495ed; /* васильковые границы вкладок */
+	border-width: 3px 1px 1px 1px;
+	background: #e6e6fa;
+	border-radius: 3px 3px 0 0;
+}
+
+/* Изменения стиля переключателей вкладок при наведении */
+ 
+.tabs>label:hover {
+	color: #888;
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.tabs> input:checked+label   {
+	color: #000000;
+	border-top: 3px solid #6495ed;
+	border-bottom: 2px solid #e6e6fa;
+	background: #ffffff;
+}
+/* Активация секций с помощью псевдокласса :checked */
+#tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4, #tab5:checked~#content-tab5, #tab6:checked~#content-tab6, #tab7:checked~#content-tab7, #tab8:checked~#content-tab8 {
+	display: block;
+}
+/* Убираем текст с переключателей 
+* и оставляем иконки на малых экранах
+*/
+ 
+@media screen and (max-width: 680px) {
+	.tabs>label {
+		font-size: 0;
+	}
+	.tabs>label:before {
+		margin: 0;
+		font-size: 18px;
+	}
+}
+/* Изменяем внутренние отступы 
+*  переключателей для малых экранов
+*/
+@media screen and (max-width: 400px) 
+{
+	.tabs>label 
+	{
+		padding: 15px;
+	}
+}
+.tabs{
+	margin-top:20px;	
+}
+
+
+
+/* Форма для добавления техники вручную  */
+.inf_add{
+	height:30px;
+	margin-top:-80px;
+	margin-left:-50px;
+	position: absolute;
+}
+.Comptab_add {
+	width: 1700px;
+	padding: 200px;
+	margin-left:-280px;
+	margin-top:80px;
+}
+/* Стили секций с содержанием */
+.Comptab_add >section {
+	display: none;
+	padding: 40px; /* Отступ от правого края панели */
+	background: #ffffff;
+	border: 1px solid #6495ed; /* границы панели */
+	/* position: relative; overflow: auto;*/
+	overflow:hidden;
+	height:100%;	
+}
+.Comptab_add >section>p {
+	margin: 0 0 5px;
+	line-height: 2;
+	color: #000000;
+	/* анимациz */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+/* Описываем анимацию свойства opacity */
+ 
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/* Прячем чекбоксы */
+.Comptab_add >input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.Comptab_add >label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: #000000;
+	border: 0px solid #6495ed; /* васильковые границы вкладок */
+	border-width: 3px 1px 1px 1px;
+	background: #e6e6fa;
+	border-radius: 3px 3px 0 0;
+}
+
+/* Изменения стиля переключателей вкладок при наведении */
+ 
+.Comptab_add >label:hover {
+	color: #888;
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.Comptab_add >input:checked+label   {
+	color: #000000;
+	border-top: 3px solid #6495ed;
+	border-bottom: 2px solid #e6e6fa;
+	background: #ffffff;
+}
+/* Активация секций с помощью псевдокласса :checked */
+#Comptab1_add:checked~#content-Comptab1-add, #Comptab2_add:checked~#content-Comptab2-add, #Comptab3_add:checked~#content-Comptab3-add, #Comptab4_add:checked~#content-Comptab4-add, #Comptab5_add:checked~#content-Comptab5-add, #Comptab6_add:checked~#content-Comptab6-add, #Comptab7_add:checked~#content-Comptab7-add, #Comptab8_add:checked~#content-Comptab8-add {
+	display: block;
+}
+/* Убираем текст с переключателей 
+* и оставляем иконки на малых экранах
+*/
+ 
+@media screen and (max-width: 680px) {
+	.Comptab_add>label {
+		font-size: 0;
+	}
+	.Comptab_add>label:before {
+		margin: 0;
+		font-size: 18px;
+	}
+}
+/* Изменяем внутренние отступы 
+*  переключателей для малых экранов
+*/
+@media screen and (max-width: 400px) 
+{
+	.Comptab_add>label 
+	{
+		padding: 15px;
+	}
+}
+
+
+
+
+
+
+/* Форма для просмотра/редактирования техники  */
+.inf{
+	
+	margin:1% 25% -12% 25%;
+  width:50%;
+	margin-left: 250px;
+	
+	 padding: 10px;
+}
+.Comptab {
+/*	width: 1700px;
+	padding: 200px;
+	bottom:15px;
+	margin-left:30px;
+	margin-top:40px;*/
+	
+	width: 1750px;
+	padding: 200px;
+	bottom:15px;
+	margin-left: auto;
+    margin-right: auto;
+	
+
+}
+/* Стили секций с содержанием */
+.Comptab>section {
+	display: none;
+	padding: 40px; /* Отступ от правого края панели */
+	background: #ffffff;
+	border: 1px solid #6495ed; /* границы панели */
+	/* position: relative; overflow: auto;*/
+	overflow:hidden;
+	height:100%;
+	
+}
+.Comptab>section>p {
+	margin: 0 0 5px;
+	line-height: 2;
+	color: #000000;
+	/* анимациz */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+/* Описываем анимацию свойства opacity */
+ 
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/* Прячем чекбоксы */
+.Comptab>input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.Comptab>label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: #000000;
+	border: 0px solid #6495ed; /* васильковые границы вкладок */
+	border-width: 3px 1px 1px 1px;
+	background: #e6e6fa;
+	border-radius: 3px 3px 0 0;
+}
+
+/* Изменения стиля переключателей вкладок при наведении */
+ 
+.Comptab>label:hover {
+	color: #888;
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.Comptab>input:checked+label   {
+	color: #000000;
+	border-top: 3px solid #6495ed;
+	border-bottom: 2px solid #e6e6fa;
+	background: #ffffff;
+}
+/* Активация секций с помощью псевдокласса :checked */
+#Comptab1:checked~#content-Comptab1, #Comptab2:checked~#content-Comptab2, #Comptab3:checked~#content-Comptab3, #Comptab4:checked~#content-Comptab4, #Comptab5:checked~#content-Comptab5, #Comptab6:checked~#content-Comptab6, #Comptab7:checked~#content-Comptab7, #Comptab8:checked~#content-Comptab8 {
+	display: block;
+}
+/* Убираем текст с переключателей 
+* и оставляем иконки на малых экранах
+*/
+ 
+@media screen and (max-width: 680px) {
+	.Comptab>label {
+		font-size: 0;
+	}
+	.Comptab>label:before {
+		margin: 0;
+		font-size: 18px;
+	}
+}
+/* Изменяем внутренние отступы 
+*  переключателей для малых экранов
+*/
+@media screen and (max-width: 400px) 
+{
+	.Comptab>label 
+	{
+		padding: 15px;
+	}
+}
+
+
+
+
+.nameParent {
+	/*;
+	margin-top:5px;
+	margin-left:300px;*/
+	height:30px;
+	position: relative;
+    overflow: hidden;
+	margin: 30px 0;
+	margin-left:600px;
+	
+	align-items: center;
+  justify-content: center
+}
+.add {
+	position: relative;
+	display: inline-block;
+	width: 9em;
+	height: 2.3em;
+	line-height: 2.5em;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px #f8f4ff;
+	color: #fff;
+	outline: none;
+	border: 2px solid #e6e6fa;
+	border-radius: 5px;
+	box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #285a90;
+	background: linear-gradient(#283a90, #3b5998 48%, #3b5998 52%, #283a90);
+	margin-top:10px;
+	margin-left:100px	
+}
+.add:active {
+	top: .1em;
+	left: .1em;
+	box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+}
+
+fieldset {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    text-overflow: clip;
+	display:table-cell;
+	width: 30%;
+}
+select {
+    overflow: hidden;
+}
+
+ div .proc {
+	/*position: sticky;*/
+	/*/float:right;*/
+	/*overflow:hidden;
+	height:100%;*/
+	width:45%;
+	min-width: 40%;
+	margin-left: 30px;
+	float: left;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+ div .vidiokarta {
+	
+	/* position: relative;
+	position: sticky;*/
+	/*margin-left: 500px;
+	margin-top: -230px;
+	float:right;*/
+	width:45%;
+	min-width: 40%;
+	margin-left: 30px;
+	float:left;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+ div .ozu{
+	width:45%;
+	min-width: 40%;
+	margin-left: 30px;
+	float:left ;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+ div .accumulate{
+	/*margin-left: 500px;
+	margin-top: 90px;*/
+	width:45%;
+	min-width: 40%;
+	margin-left:30px;
+	float:left ;
+	display: inline-block;	
+	margin-bottom: 15px;
+}
+
+ div .drive{
+	width:45%;
+	min-width: 40%;
+	margin-left: 30px;
+	clear: left;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+     .empty_field:focus {
+		outline: 3px solid orange;
+    /*  border-width: 4px;
+     // border-color: red;*/
+	  
+    }
+	
+#year {
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	width: 150px;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+}
+
+input[type='number'] {
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	width: 80px;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+}
+
+input[type="number"]:invalid+span:after {
+	content: '✖';
+	padding-left: 5px;
+	color: red;
+}

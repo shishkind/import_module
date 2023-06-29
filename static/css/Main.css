@@ -1,0 +1,216 @@
+﻿<html{
+    background-color: #f5f5f5;
+	height:100%;
+	font-family: Times, serif;
+}
+.div-stick {
+    width: 50%;
+    overflow: hidden;
+}
+#div-stick-solo {
+    margin-top:3%;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.stick {
+    margin-top:1%;
+    width: 100%;
+    height: 5px;
+}
+
+#logo {
+    margin-left:1%;
+    margin-right:1%;
+}
+#main-div-header {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#text-header {
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: normal;
+    color: #323C8D;
+    text-align: center;
+}
+#header {
+    margin-left:5%;
+    margin-right:5%;
+}
+.superbutton{
+	display: flex;
+	position: relative;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 1px -1px #000;
+	user-select: none;
+	padding: .5em 3em;
+	outline: none;
+	background-color: #283a90;
+	background-image: linear-gradient(49deg, rgba(255,255,255,.0) 50%, rgba(255,255,256,.8), rgba(255,255,255,.0) 70%), radial-gradient(100% 100% at 60% 0%, rgba(255,255,255,.9) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+	background-repeat: no-repeat;
+	background-size: 140% 120%, auto;
+	background-position: 170% 0, 0 0;
+	background-position: 170% 0, 0 0;
+	box-shadow: rgba(0,0,0,.1) 0 2px 4px;
+	border-radius: 10px;
+	height:35px;
+	margin-left:45px;
+	margin-top:-20px;
+}
+.superbutton:active {
+	top: 1px;
+	box-shadow: none;
+}
+.superbutton:hover {
+	transition: .5s linear;
+	background-position: -200% 0, 0 0;
+	opacity: 1;
+}
+
+#exit{
+	position: relative;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 1px -1px #000;
+	user-select: none;
+	padding: .3em 3em;
+	outline: none;
+	background-color: #283a90;
+	background-image: linear-gradient(49deg, rgba(255,255,255,.0) 50%, rgba(255,255,256,.8), rgba(255,255,255,.0) 60%), radial-gradient(100% 100% at 60% 0%, rgba(255,255,255,.9) 0%, rgba(255,255,255,.5) 30%, rgba(0,0,0,0) 50%);
+	background-repeat: no-repeat;
+	background-size: 140% 120%, auto;
+	background-position: 170% 0, 0 0;
+	background-position: 170% 0, 0 0;
+	box-shadow: rgba(0,0,0,.1) 0 2px 4px;
+	border-radius: 8px;
+	height:35px;
+	justify-content: center;
+    align-items: center;
+	margin-left:780px;
+	margin-top:30px;
+}
+#exit:active {
+	top: 1px;
+	box-shadow: none;
+}
+#exit:hover {
+	transition: .5s linear;
+	background-position: -200% 0, 0 0;
+	opacity: 1;
+}
+
+.input-group{	
+	display: flex;
+	width: 50%;
+	margin-bottom: 15px;
+}
+
+.bgr2 {
+	padding: 20px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav{
+	width: 100px;
+	height: 200px;
+	background: black;
+	position: absolute;
+	left:-100px; 
+}
+.nav-btn{
+	width: 20px;
+	height: 20px;
+	background: black;
+	position: absolute;
+	top:150px;
+	left: 10px;
+
+}
+
+.nav{
+	transition: all 0.5s ease;
+}
+
+/*.spr{
+	margin-top: -15px;
+	margin-right: 950px;
+	float: right;
+	width: 250px;
+	height: 120px;
+	background: #E9E8E8;
+}*/
+.spr {
+	background-color: #323c8d;/* #9db1cc  323c8d  c5d0e6*/
+	width: 1070px;
+	height: 45px;
+	display: block;
+	position: absolute;
+  z-index: 10000;
+  margin-top:-10px;
+  margin-bottom:50px;
+  margin-left:50px;
+  font-family:"Times New Roman", Georgia, Serif;
+	}
+			
+.spr ul {
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+}
+.spr ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	}	
+/* отображаем выпадающий список при наведении */
+.spr ul li:hover > ul {
+	display:inherit;
+}		
+/* первый уровень выпадающего списка */
+.spr ul ul li {
+	min-width:140px;
+	min-height:-10px;
+	float:none;
+	display:list-item;
+	position: relative;
+	width:180px;
+}
+.spr ul ul ul {
+	position: absolute;
+	left:100%;
+}
+/* применяем inline-block позиционирование к элементам навигации */
+.spr ul li {
+	margin: 0px -7px 0 0;
+	display:inline-block;
+	background-color: #323c8d;
+}			
+			/* стилизуем ссылки */
+.spr a {
+	display:block;
+	padding:0 10px;
+	color:#FFF;
+	font-size:20px;
+	line-height: 45px;
+	text-decoration:none;
+	font-size: 18px; 
+}			
+			/* изменяем цвет фона при наведении курсора */
+.spr a:hover {
+	background-color: #b0c4de;
+	font-size: 18px;
+
+}
+a. { font-size: 14px; }

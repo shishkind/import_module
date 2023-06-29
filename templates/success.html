@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Авторизация</title>
+		
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/Main.css' %}">
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	</head>
+	<header id="header">
+        <div id="main-div-header">
+          <div class="div-stick">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+            <img class="stick" src="">
+          </div>
+          <div id="logo">
+            {% load static %}
+            <img class="img-fluid" src="{% static 'img/logo-mgtu.png' %}">
+          </div>
+          <div class="div-stick">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+          </div>
+        </div>
+        <div id="text-header">
+          <span>Магнитогорский государственный</span>
+          <br>
+          <span>технический университет им. Г.И. Носова</span>
+        </div>
+        <div id="div-stick-solo">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+            {% load static %}
+            <img class="stick" src="{% static 'img/header-test.png' %}">
+        </div>
+</header>
+	<body>
+		<div class="bgr2">	
+			<div class="alert alert-success" role="alert">
+                В систему успешно добавлено 2132 публикаций.
+                <ul>
+                    <li>Статьи в научных журналах: 784</li>
+                    <li>Материалы конференций: 1342</li>
+                    <li>Главы в книгах: 6</li>
+                   </ul>
+                Источник данных - eLibrary
+              </div>
+		
+		</div>
+		</body>
+	</html>
